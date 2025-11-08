@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Bookmark Reader Dashboard**
 
-## Getting Started
+## Description
+A modern, responsive web application for managing and reading bookmarked articles — built with Next.js 16, React 19, and Tailwind CSS, using a modular component architecture powered by Radix UI primitives and class-variance-authority (CVA).
 
-First, run the development server:
+
+## Features
+
+- Dashboard View – Browse, search, sort, and filter saved bookmarks
+-  Reader Mode – View full articles in a distraction-free interface
+- Modular UI System – Built using reusable, accessible Radix components
+- Notification Popup – Get article reminders and reading suggestions
+- Summary Editor – Quickly generate or edit content summaries
+- Collaboration Panel – Interact or share reading sessions with others
+- Settings Page – Manage appearance (dark mode, layout preferences, etc.)
+- Responsive Design – Optimized for mobile, tablet, and desktop
+
+## Installation
+
+Step 1 : Clone the repository
+
+```bash 
+git clone https://github.com/yourusername/bookmark-reader.git
+
+cd bookmark-reader/web
+```
+
+Step 2: Install dependencies
+
+Make sure you have Node.js 20+ and npm installed.
+
+```bash
+npm install
+```
+
+Step 3: Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+web/
+├── app/
+│   ├── layout.tsx           # Root layout (global fonts, styles, metadata)
+│   └── page.tsx             # Entry page that loads the Dashboard
+│
+├── components/
+│   ├── Dashboard.tsx        # Main application container managing state & layout
+│   ├── MainContent.tsx      # Displays bookmarks, search, sorting, pagination
+│   ├── BookmarkCard.tsx     # Individual bookmark card with actions
+│   ├── Sidebar.tsx          # Filter & navigation sidebar
+│   ├── TopNavigation.tsx    # Header with dark mode toggle & settings
+│   ├── CollaborationPanel.tsx # Realtime collaboration section
+│   ├── SummaryEditor.tsx    # Modal for creating/editing summaries
+│   ├── NotificationPopup.tsx # In-app notifications and reminders
+│   ├── SettingsPage.tsx     # User settings panel
+│   └── ui/                  # Shared UI primitives (Radix-based)
+│       ├── accordion.tsx
+│       ├── alert.tsx
+│       ├── alert-dialog.tsx
+│       ├── aspect-ratio.tsx
+│       ├── avatar.tsx
+│       ├── badge.tsx
+│       ├── breadcrumb.tsx
+│       ├── button.tsx
+│       ├── select.tsx
+│       ├── sidebar.tsx
+│       ├── utils.ts
+│       └── use-mobile.ts
+│
+├── styles/
+│   └── globals.css          # Tailwind and global CSS imports
+│
+├── public/                  # Static assets (icons, images)
+├── tsconfig.json            # TypeScript configuration
+└── package.json             # Project dependencies & scripts
+```
 
-## Learn More
+## Design & Architecture
 
-To learn more about Next.js, take a look at the following resources:
+### Component Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Atomic Design: Built using reusable atoms (Button, Badge), molecules (BookmarkCard), and organisms (Dashboard, MainContent).
+- Composable UI: Each UI element can be reused independently.
+- State Management: Managed via React hooks at component level for simplicity.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Framework & Tools
 
-## Deploy on Vercel
+- Next.js 16 (App Router) – File-based routing and modern server rendering.
+- React 19 – Hooks-based functional components.
+- Tailwind CSS – Utility-first styling.
+- Radix UI Primitives – Accessible, unstyled components.
+- class-variance-authority (CVA) – Manage component style variants cleanly.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Theming & Responsiveness
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Supports both light and dark themes.
+- Uses useIsMobile hook for responsive UI transitions.
+
+
+## Collaboration Guidelines
+### Branch Naming Convention
+
+```
+feat/feature-name
+fix/bug-description
+refactor/component-name
+docs/update-readme
+```
+
+### Commit Messages
+
+```
+feat(ui): add new BookmarkCard component
+fix(dashboard): resolve layout overflow on mobile
+```
+
+### Pull Requests
+
+- Keep PRs small and focused.
+- Include screenshots or screen recordings for UI updates.
+- Ensure linting and formatting pass (npm run lint).
+
+### Code Style
+
+- Use Prettier and ESLint.
+- Avoid inline styles; prefer utility classes.
+- Prefer functional components and hooks.
+
+
+## License
+
+This project is licensed under the MIT License.
+See the [LICENSE](../LICENSE) file for details.
